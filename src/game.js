@@ -1,9 +1,10 @@
-
+const PlayerShip = require('./player_ship');
+const EnemyShip = require('./enemy_ship');
 
 class Game {
     constructor() {
-        enemyShips = [];
-        playerShip = null;
+        this.enemyShips = [];
+        this.playerShip = null;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -11,7 +12,7 @@ class Game {
 
     addPlayerShip() {
         this.playerShip = new PlayerShip({
-            pos: [gameBoard.width - 310, gameBoard.height - 50],
+            pos: [300, 650],
             vel: [0, 0],
             height: 20,
             width: 40,
@@ -24,10 +25,23 @@ class Game {
     }
 
     addEnemies() {
-        for(let i = 0; i < Game.NUM_ENEMIES; i++) {
-            this.addEnemies(new EnemyShip( { game: this.game } ))
+
+        let y = 100;
+        for(let i = 0; i < 5; i++) {
+            let x = 40;
+            for(let n = 0; n < 11; n++) {
+                this.add(new EnemyShip({
+                    pos: [x, y],
+                    vel: [2, 2]  
+                }))
+                x += 50;
+            }
+            y += 50;
         }
     }
+
+    // 11 across
+    // 5 down
 
     draw(ctx) {
         ctx.clearRect(0, 0, 600, 720);
