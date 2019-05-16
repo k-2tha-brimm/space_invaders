@@ -1,25 +1,47 @@
 body {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    background-color: chocolate;
 }
 
 .space-invaders {
-    font-size: 34px;
+    font-size: 48px;
+    color: rgb(16, 92, 16);
     margin: 0 auto;
     text-align: center;
     display: block;
     height: 100px;
     width: 100%;
     margin: 0;
-    float: left;
     padding: 10px;
     position: absolute;
     align-items: center;
     margin-top: 25px;
+    font-family: 'Indie Flower', cursive;
 }
 
 #game-canvas {
     border: 1px solid black;
     margin-top: 25%;
     display: block;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.canvas-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin: auto;
+}
+
+aside {
+    float: left;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    position: absolute;
 }
