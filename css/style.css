@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.space-invaders {
+    font-size: 34px;
+    display: flex;
+}
+
+#game-canvas {
+    border: 1px solid black;
+    margin-top: 10%;
+    display: block;
+}
