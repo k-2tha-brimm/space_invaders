@@ -40,9 +40,6 @@ class Game {
         }
     }
 
-    // 11 across
-    // 5 down
-
     draw(ctx) {
         ctx.clearRect(0, 0, 600, 720);
         ctx.fillStyle = 'black';
