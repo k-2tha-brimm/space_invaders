@@ -10,6 +10,7 @@ const DEFAULTS = {
 class PlayerShip extends Entities {
     constructor(specs) {
         super(specs);
+        this.pos = specs.pos;
         // this.color = DEFAULTS.color;
         // this.width = DEFAULTS.width;
         // this.height = DEFAULTS.height;
