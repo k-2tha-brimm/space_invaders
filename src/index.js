@@ -7,5 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const ctx = gameBoard.getContext('2d');
     ctx.fillStyle = "black";
-    ctx.fillRect(10, 10, 580, 700);
+    ctx.fillRect(0, 0, 600, 720);
 })
