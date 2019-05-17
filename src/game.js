@@ -32,11 +32,12 @@ class Game {
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
                     pos: [x, y],
-                    vel: [2, 2]  
+                    vel: [2, 2],
+                    game: this.game
                 }))
-                x += 50;
+                x += 45;
             }
-            y += 50;
+            y += 35;
         }
     }
 
@@ -53,5 +54,7 @@ class Game {
 }
 
 Game.NUM_ENEMIES = 55;
+Game.HEIGHT = 720;
+Game.WIDTH = 600;
 
 module.exports = Game;
