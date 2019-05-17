@@ -28,6 +28,10 @@ class Game {
         this.enemyShips.push(ship);
     }
 
+    addBullet(bullet) {
+        this.bullets.push(bullet);
+    }
+
     addEnemies() {
 
         let y = 100;
@@ -68,17 +72,22 @@ class Game {
                         ship.pos[1] += 30;
                         ship.pos[0] += 10;
                         ship.vel = [n, 0];
-                    }).then(() => n += 5).then(ship => ship.move())
+                    })
                 } else {
                     this.enemyShips.map((ship) => {
                         ship.pos[1] += 30;
                         ship.pos[0] -= 10;
                         ship.vel = [-n, 0];
-                    }).then(() => n += 5).then(ship => ship.move())
+                    })
                 }
             } else {
                 ship.move();
             }
+        })
+
+        this.bullets.forEach((bullet) => {
+            console.log('bullet is moving');
+            bullet.pos[1] -= bullet.vel[1];
         })
     }
 
@@ -97,8 +106,8 @@ class Game {
                     this.playerShip.pos[0] -= 10;
                 }
             } else if(e.keyCode === 32) {
-                console.log('you pushed space');
-                this.bullets.push(new Bullet(this.playerShip))
+                const position = [this.playerShip.pos[0] + 10, this.playerShip.pos[1] - 13];
+                this.addBullet(new Bullet(position))
             }
         });
     }
