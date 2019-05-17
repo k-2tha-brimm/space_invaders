@@ -1,9 +1,11 @@
 const PlayerShip = require('./player_ship');
 const EnemyShip = require('./enemy_ship');
+const Bullet = require('./bullet');
 
 class Game {
     constructor(gameBoard) {
         this.enemyShips = [];
+        this.bullets = [];
         this.playerShip = null;
         this.gameBoard = gameBoard;
 
@@ -52,6 +54,9 @@ class Game {
             ship.draw(ctx);
         });
         this.playerShip.draw(ctx);
+        this.bullets.forEach((bullet) => {
+            bullet.draw(ctx);
+        })
     }
 
     moveObjects() {
@@ -91,6 +96,9 @@ class Game {
                 } else {
                     this.playerShip.pos[0] -= 10;
                 }
+            } else if(e.keyCode === 32) {
+                console.log('you pushed space');
+                this.bullets.push(new Bullet(this.playerShip))
             }
         });
     }
