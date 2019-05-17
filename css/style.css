@@ -1,7 +1,11 @@
+html, body { width: 100% }
+
 body {
     display: flex;
     /* justify-content: center; */
     background-color: chocolate;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 .space-invaders {

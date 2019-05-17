@@ -2,12 +2,14 @@ const PlayerShip = require('./player_ship');
 const EnemyShip = require('./enemy_ship');
 
 class Game {
-    constructor() {
+    constructor(gameBoard) {
         this.enemyShips = [];
         this.playerShip = null;
+        this.gameBoard = gameBoard;
 
         this.addEnemies();
         this.addPlayerShip();
+        this.registerEvents();
     }
 
     addPlayerShip() {
@@ -55,7 +57,6 @@ class Game {
     moveObjects() {
         let n = 5;
         this.enemyShips.forEach((ship) => {
-            console.log(n);
             if(this.isOutOfBounds(ship.pos)) {
                 if(ship.pos[0] < 0) {
                     this.enemyShips.map((ship) => {
@@ -74,6 +75,16 @@ class Game {
                 ship.move();
             }
         })
+    }
+
+    registerEvents() {
+        document.addEventListener('keydown', e => {
+            if(e.keyCode === 37) {
+                this.playerShip.pos[0] -= 10
+            } else if(e.keyCode === 39) {
+                this.playerShip.pos[0] += 10
+            }
+        });
     }
 
     isOutOfBounds(pos) {
