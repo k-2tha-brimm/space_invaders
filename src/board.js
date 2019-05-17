@@ -3,14 +3,22 @@ class Board {
         this.ctx = ctx;
         this.game = game;
         this.playerShip = game.addPlayerShip;
+        // this.lastTime = 0;
+    }
+
+    animate(time) {
+        // const delta = time - this.lastTime;
+
+        this.game.draw(this.ctx);
+        this.game.moveObjects();
+        // this.lastTime = time;
+
+        requestAnimationFrame(this.animate.bind(this));
     }
 
     start() {
-        setInterval(() => {
-            this.game.draw(this.ctx);
-            this.game.checkCollisions();
-            // this.game.moveObjects();
-        }, 150);
+        this.lastTime = 0;
+        requestAnimationFrame(this.animate.bind(this));
     }
     
 }

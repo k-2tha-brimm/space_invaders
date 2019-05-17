@@ -18,7 +18,8 @@ class Entities {
     }
 
     move() {
-        this.pos[0] += this.vel[0]
+        // const delta = timeDelta || 0.05;
+        this.pos[0] += (this.vel[0]);
     }
 
     remove() {

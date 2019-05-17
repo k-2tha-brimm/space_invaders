@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     gameBoard.height = 720;
     
     const ctx = gameBoard.getContext('2d');
-    ctx.fillStyle = "black";
-    ctx.fillRect(0, 0, 600, 720);
 
     const game = new Game(gameBoard);
     const board = new Board(game, ctx);

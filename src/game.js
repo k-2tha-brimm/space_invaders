@@ -50,9 +50,15 @@ class Game {
     }
 
     draw(ctx) {
-        ctx.clearRect(0, 0, 600, 720);
-        ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, 600, 720);
+        // ctx.clearRect(0, 0, 600, 720);
+        // ctx.fillStyle = 'black';
+        // ctx.fillRect(0, 0, 600, 720);
+
+        const img = new Image();
+        img.src = '../assets/images/halo.jpg';
+        img.onload = () => {
+            ctx.drawImage(img, -500, 0);
+        };
 
         this.enemyShips.forEach((ship) => {
             ship.draw(ctx);
@@ -68,14 +74,16 @@ class Game {
             for(let j = 0; j < this.enemyShips.length; j++) {
                 if(this.bullets[i].didCollide(this.enemyShips[j])) {
                     console.log('HIT');
+                    console.log(this.enemyShips[j].area);
+                    return true;
                 }
             }
         }
     }
 
     moveObjects() {
-        let n = 4;
         this.enemyShips.forEach((ship) => {
+            let n = 2;
             if(this.isOutOfBounds(ship.pos)) {
                 if(ship.pos[0] < 0) {
                     this.enemyShips.map((ship) => {
@@ -87,7 +95,7 @@ class Game {
                     this.enemyShips.map((ship) => {
                         ship.pos[1] += 30;
                         ship.pos[0] -= 10;
-                        ship.vel = [-n, 0];
+                        ship.vel = [-(n), 0];
                     })
                 }
             } else {
@@ -123,6 +131,14 @@ class Game {
 
     isOutOfBounds(pos) {
         return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
+    }
+
+    remove(entity) {
+        if(entity instanceof EnemyShip) {
+            this.enemyShips.splice(enemyShips.indexOf(entity), 1);
+        } else if(entity instanceof Bullet) {
+            this.bullets.splice(bullets.indexOf(entity), 1);
+        }
     }
 
 }
