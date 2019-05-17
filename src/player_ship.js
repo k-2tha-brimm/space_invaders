@@ -9,6 +9,7 @@ class PlayerShip extends Entities {
         this.width = 25;
         this.height = 10;
         this.vel = specs.vel || [0, 0];
+        this.area = this.height * this.width;
     }
 
     move() {

@@ -8,8 +8,9 @@ class Board {
     start() {
         setInterval(() => {
             this.game.draw(this.ctx);
+            this.game.checkCollisions();
             // this.game.moveObjects();
-        }, 250);
+        }, 150);
     }
     
 }

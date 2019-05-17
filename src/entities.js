@@ -1,3 +1,5 @@
+const Vector = require('./vectors');
+
 class Entities {
 
     constructor(props) {
@@ -5,6 +7,7 @@ class Entities {
         this.vel = props.vel;
         this.color = props.color;
         this.height = props.height;
+        this.area = this.height * this.width;
         this.width = props.width;
         this.game = props.game;
     }
@@ -21,6 +24,13 @@ class Entities {
     remove() {
         this.game.remove(this);
     }
+
+    didCollide(otherEntity) {
+        const dist = Vector.distance(this.pos, otherEntity.pos);
+        return dist < (this.area + otherEntity.area)
+    }
+
+    
 }
 
 const FRAME_RATE_DELTA = 1000/60;

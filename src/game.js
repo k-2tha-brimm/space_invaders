@@ -63,8 +63,18 @@ class Game {
         })
     }
 
+    checkCollisions() {
+        for(let i = 0; i < this.bullets.length; i++) {
+            for(let j = 0; j < this.enemyShips.length; j++) {
+                if(this.bullets[i].didCollide(this.enemyShips[j])) {
+                    console.log('HIT');
+                }
+            }
+        }
+    }
+
     moveObjects() {
-        let n = 5;
+        let n = 4;
         this.enemyShips.forEach((ship) => {
             if(this.isOutOfBounds(ship.pos)) {
                 if(ship.pos[0] < 0) {
@@ -86,7 +96,6 @@ class Game {
         })
 
         this.bullets.forEach((bullet) => {
-            console.log('bullet is moving');
             bullet.pos[1] -= bullet.vel[1];
         })
     }
