@@ -20,7 +20,7 @@ Finish polishing and ensuring accurate movement of all entities on the board. My
 1. Enemy ships will need to both change direction and speed up upon collision with one of the left/right boundaries of the board
 2. The user ship should not be affected by coming into contact with any of the boundaries of the board
 3. When the enemy ships have moved into the player ship's vertical space, the round is lost
-Begin building out the logic for destruction of ships upon collision with projectiles (another class), and incrementing score accordingly
+4. Begin building out the logic for destruction of ships upon collision with projectiles (another class), and incrementing score accordingly
 
 ### Day 4
 Finish polishing collision logic between projectiles and entities classes, and implement sounds that indicate that a successful volley has been executed
