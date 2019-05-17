@@ -59,7 +59,7 @@ class Game {
     }
 
     isOutOfBounds(pos) {
-        return(pos[0] < 0) || (pos[0] > Game.WIDTH)
+        return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
     }
 
 }
