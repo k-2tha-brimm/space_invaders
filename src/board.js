@@ -5,19 +5,10 @@ class Board {
         this.playerShip = game.addPlayerShip;
     }
 
-    // bindKeyHandlers() {
-    //     const ship = this.playerShip;
-    //     Object.keys(Board.MOVES).forEach((key) => {
-    //         const move = Board.MOVES[key];
-    //         keyCode(key, () => { ship.move(move); });
-    //     })
-
-    // }
-
     start() {
-        // this.bindKeyHandlers();
         setInterval(() => {
             this.game.draw(this.ctx);
+            this.game.moveObjects();
         }, 200);
     }
     

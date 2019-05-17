@@ -32,8 +32,8 @@ class Game {
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
                     pos: [x, y],
-                    vel: [2, 2],
-                    game: this.game
+                    vel: [2, 0],
+                    game: this
                 }))
                 x += 45;
             }
@@ -51,6 +51,17 @@ class Game {
         });
         this.playerShip.draw(ctx);
     }
+
+    moveObjects() {
+        this.enemyShips.forEach((ship) => {
+            ship.move();
+        })
+    }
+
+    isOutOfBounds(pos) {
+        return(pos[0] < 0) || (pos[0] > Game.WIDTH)
+    }
+
 }
 
 Game.NUM_ENEMIES = 55;

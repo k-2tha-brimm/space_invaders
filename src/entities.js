@@ -1,11 +1,12 @@
 class Entities {
 
-    constructor(specs) {
-        this.pos = specs.pos;
-        this.vel = specs.vel;
-        this.color = specs.color;
-        this.height = specs.height;
-        this.width = specs.width;
+    constructor(props) {
+        this.pos = props.pos;
+        this.vel = props.vel;
+        this.color = props.color;
+        this.height = props.height;
+        this.width = props.width;
+        this.game = props.game;
     }
 
     draw(ctx) {
@@ -15,22 +16,23 @@ class Entities {
 
     move() {
         // if the object hits a boundary, then reverse its direction and drop it down a row
+        if(this.game.isOutOfBounds(this.pos)) {
+            if(this.pos[0] < 0) {
+                this.pos[1] -= 30;
+                this.pos[0] -= 10;
+                this.vel = [-5, 0];
+            } else {
+                this.pos[1] -= 30;
+                this.pos[0] += 10;
+                this.vel = [5, 0];
+            }
+        } else {
+            this.pos[0] += this.vel[0]
+        }
         // if the object has not hit a boundary, then simply increment its movement speed by one
         //
 
     }
-
-
-    // move(timeDelta) {
-    //     const velocityIncrement = timeDelta / FRAME_RATE_DELTA,
-    //     offsetX = this.vel[0] * velocityIncrement;
-    //     offsetY = this.vel[1] * velocityIncrement;
-
-    //     this.pos = [this.pos[0] + offsetX, this.pos[1] + offsetY];
-
-    //     // we are going to need some logic here to account for an entity hitting the
-    //     // walls on either side of the board
-    // }
 
     remove() {
         this.game.remove(this);
