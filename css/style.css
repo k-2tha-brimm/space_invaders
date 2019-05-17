@@ -85,8 +85,27 @@ aside {
     background: transparent;
     border: none;
     font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
 }
 
 #start:hover {
     cursor: pointer;
+}
+
+#splash-page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+    top: 20%;
+    left: 37%;
+}
+
+#splash-page > img {
+    margin-bottom: 120px;
 }

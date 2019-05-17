@@ -108,7 +108,7 @@ class Game {
                         ship.vel = [-(n), 0];
                     })
                 }
-                
+
             } else {
                 ship.move();
             }
