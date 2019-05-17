@@ -8,7 +8,7 @@ class Board {
     start() {
         setInterval(() => {
             this.game.draw(this.ctx);
-            this.game.moveObjects();
+            // this.game.moveObjects();
         }, 200);
     }
     

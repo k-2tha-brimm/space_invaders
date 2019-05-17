@@ -53,8 +53,26 @@ class Game {
     }
 
     moveObjects() {
+        let n = 5;
         this.enemyShips.forEach((ship) => {
-            ship.move();
+            console.log(n);
+            if(this.isOutOfBounds(ship.pos)) {
+                if(ship.pos[0] < 0) {
+                    this.enemyShips.map((ship) => {
+                        ship.pos[1] += 30;
+                        ship.pos[0] += 10;
+                        ship.vel = [n, 0];
+                    }).then(() => n += 5).then(ship => ship.move())
+                } else {
+                    this.enemyShips.map((ship) => {
+                        ship.pos[1] += 30;
+                        ship.pos[0] -= 10;
+                        ship.vel = [-n, 0];
+                    }).then(() => n += 5).then(ship => ship.move())
+                }
+            } else {
+                ship.move();
+            }
         })
     }
 

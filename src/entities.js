@@ -15,23 +15,7 @@ class Entities {
     }
 
     move() {
-        // if the object hits a boundary, then reverse its direction and drop it down a row
-        if(this.game.isOutOfBounds(this.pos)) {
-            if(this.pos[0] < 0) {
-                this.pos[1] += 30;
-                this.pos[0] += 10;
-                this.vel = [5, 0];
-            } else {
-                this.pos[1] += 30;
-                this.pos[0] -= 10;
-                this.vel = [-5, 0];
-            }
-        } else {
-            this.pos[0] += this.vel[0]
-        }
-        // if the object has not hit a boundary, then simply increment its movement speed by one
-        //
-
+        this.pos[0] += this.vel[0]
     }
 
     remove() {
