@@ -9,14 +9,9 @@ class Board {
         setInterval(() => {
             this.game.draw(this.ctx);
             // this.game.moveObjects();
-        }, 200);
+        }, 250);
     }
     
-}
-
-Board.MOVES = {
-    37: [0, -1],
-    39: [0, 1]
 }
 
 module.exports = Board;

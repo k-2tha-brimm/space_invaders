@@ -80,9 +80,17 @@ class Game {
     registerEvents() {
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
-                this.playerShip.pos[0] -= 10
+                if(!this.isOutOfBounds(this.playerShip.pos)){
+                    this.playerShip.pos[0] -= 20;
+                } else {
+                    this.playerShip.pos[0] += 10;
+                }
             } else if(e.keyCode === 39) {
-                this.playerShip.pos[0] += 10
+                if(!this.isOutOfBounds(this.playerShip.pos)){
+                    this.playerShip.pos[0] += 20
+                } else {
+                    this.playerShip.pos[0] -= 10;
+                }
             }
         });
     }
