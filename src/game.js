@@ -8,6 +8,7 @@ class Game {
         this.bullets = [];
         this.playerShip = null;
         this.gameBoard = gameBoard;
+        this.playerLives = 3;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -40,7 +41,7 @@ class Game {
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
                     pos: [x, y],
-                    vel: [2, 0],
+                    vel: [1.2, 0],
                     game: this
                 }))
                 x += 45;
@@ -83,8 +84,17 @@ class Game {
 
     moveObjects() {
         this.enemyShips.forEach((ship) => {
-            let n = 2;
+
+            if(this.gameOver(ship.pos)) {
+                this.enemyShips.map((ship) => {
+                    ship.vel = [0, 0];
+                })
+            }
+
+            let n = 1.2;
+
             if(this.isOutOfBounds(ship.pos)) {
+
                 if(ship.pos[0] < 0) {
                     this.enemyShips.map((ship) => {
                         ship.pos[1] += 30;
@@ -98,6 +108,7 @@ class Game {
                         ship.vel = [-(n), 0];
                     })
                 }
+                
             } else {
                 ship.move();
             }
@@ -131,6 +142,14 @@ class Game {
 
     isOutOfBounds(pos) {
         return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
+    }
+
+    gameOver(pos) {
+        if(pos[1] > 620) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     remove(entity) {

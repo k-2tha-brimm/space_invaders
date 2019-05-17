@@ -4,6 +4,7 @@ const Game = require('./game');
 const Board = require('./board');
 
 document.addEventListener("DOMContentLoaded", () => {
+    
     const gameBoard = document.getElementById('game-canvas');
     gameBoard.width = 600;
     gameBoard.height = 720;
@@ -12,8 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const game = new Game(gameBoard);
     const board = new Board(game, ctx);
+    game.draw(ctx);
 
-    board.start();
+    const start = document.getElementById('start');
+    start.addEventListener('click', () => {
+        board.start();
+    })
 
 })
 

@@ -6,7 +6,7 @@ class Board {
         // this.lastTime = 0;
     }
 
-    animate(time) {
+    animate() {
         // const delta = time - this.lastTime;
 
         this.game.draw(this.ctx);

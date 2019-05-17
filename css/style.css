@@ -21,7 +21,7 @@ body {
     position: absolute;
     align-items: center;
     margin-top: 25px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #game-canvas {
@@ -74,4 +74,19 @@ aside {
     top: 20%;
     vertical-align: middle;
     position: relative;
+}
+
+#start {
+    height: 30px;
+    font-size: 18px;
+    width: 180px;
+    color: white;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#start:hover {
+    cursor: pointer;
 }
