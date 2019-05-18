@@ -12,7 +12,6 @@ class Board {
         this.game.draw(this.ctx);
         this.game.moveObjects();
         this.game.checkCollisions();
-        this.game.isGameOver();
         // this.lastTime = time;
 
         if(!this.game.gameIsOver) { 

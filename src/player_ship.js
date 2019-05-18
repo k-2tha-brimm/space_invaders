@@ -1,4 +1,4 @@
-const vectors = require('./vectors');
+const Vector = require('./vectors');
 const Entities = require('./entities');
 
 class PlayerShip extends Entities {
@@ -15,13 +15,15 @@ class PlayerShip extends Entities {
     move() {
         document.addEventListener('keydown', () => {
             if(e.keyCode === 37) {
-                this.pos[1] -= 2.5;
+                this.vel[1] -= 2.5;
                 e.preventDefault();
             } else if(e.keyCode === 39) {
-                this.pos[1] += 2.5;
+                this.vel[1] += 2.5;
                 e.preventDefault();
             }
         });
+        this.pos[1] += this.vel[1]
+        requestAnimationFrame(move);
     }
 
 }

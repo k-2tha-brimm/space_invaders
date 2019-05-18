@@ -3,15 +3,18 @@ const EnemyShip = require('./enemy_ship');
 const Bullet = require('./bullet');
 
 class Game {
-    constructor(gameBoard) {
+    constructor(gameBoard, score) {
         this.enemyShips = [];
         this.bullets = [];
         this.bombs = [];
+        this.waveCount = 0;
+        this.enemiesAdded = false;
         this.playerShip = null;
         this.gameBoard = gameBoard;
         this.playerLives = 3;
-        this.score = 0;
+        this.score = score || 0;
         this.gameIsOver = false;
+        this.newRound = false;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -52,6 +55,7 @@ class Game {
             }
             y += 35;
         }
+        this.enemiesAdded = true;
     }
 
     draw(ctx) {
@@ -91,6 +95,11 @@ class Game {
             }
             if(destroyed) {
                 this.enemyShips.splice(i--, 1);
+                if(this.enemyShips.length === 0) {
+                    this.addEnemies();
+                    this.addPlayerShip();
+                    this.registerEvents();
+                }
             }
         }
     }
@@ -155,12 +164,6 @@ class Game {
 
     isOutOfBounds(pos) {
         return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
-    }
-
-    isGameOver() {
-        if(this.enemyShips.length === 0) {
-            this.gameIsOver = true;
-        }
     }
 
     gameOver(pos) {
