@@ -66,6 +66,10 @@ class Game {
             ctx.drawImage(img, -500, 0);
         };
 
+        ctx.font = "Press Start 2P"
+        ctx.fillstyle = 'white';
+        ctx.fillText(`Score: ${this.score}`, 20, 20)
+
         this.enemyShips.forEach((ship) => {
             ship.draw(ctx);
         });
