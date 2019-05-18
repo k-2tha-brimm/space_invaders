@@ -74,13 +74,22 @@ class Game {
     }
 
     checkCollisions() {
-        for(let i = 0; i < this.bullets.length; i++) {
-            for(let j = 0; j < this.enemyShips.length; j++) {
-                if(this.bullets[i].didCollide(this.enemyShips[j])) {
-                    console.log(this.enemyShips[j].value);
-                    // this.game.remove(this.bullets[i]);
-                    return 0;
+        for(let i = 0; i < this.enemyShips.length; i++) {
+            let enemy = this.enemyShips[i];
+            let destroyed = false;
+
+            for(let j = 0; j < this.bullets.length; j++) {
+                const bullet = this.bullets[j];
+
+                if(bullet.pos[0] >= (enemy.pos[0] - enemy.width/2) && bullet.pos[0] <= (enemy.pos[0] + enemy.width/2) &&
+                bullet.pos[1] >= (enemy.pos[1] - enemy.height/2) && bullet.pos[1] <= (enemy.pos[1] + enemy.height/2)) {
+                    this.bullets.splice(j--, 1);
+                    destroyed = true;
+                    break;
                 }
+            }
+            if(destroyed) {
+                this.enemyShips.splice(i--, 1);
             }
         }
     }
@@ -158,9 +167,9 @@ class Game {
 
     remove(entity) {
         if(entity instanceof EnemyShip) {
-            this.enemyShips.splice(enemyShips.indexOf(entity), 1);
+            this.enemyShips.splice(this.enemyShips.indexOf(entity), 1);
         } else if(entity instanceof Bullet) {
-            this.bullets.splice(bullets.indexOf(entity), 1);
+            this.bullets.splice(this.bullets.indexOf(entity), 1);
         }
     }
 

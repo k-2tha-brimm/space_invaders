@@ -25,12 +25,6 @@ class Entities {
     remove() {
         this.game.remove(this);
     }
-
-    didCollide(otherEntity) {
-        const dist = Vector.distance(this.pos, otherEntity.pos);
-        return dist < (this.area + otherEntity.area);
-    }
-
     
 }
 

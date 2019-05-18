@@ -4,7 +4,7 @@ class Bullet extends Entities {
     constructor(position) {
         super(position);
         this.pos = position;
-        this.vel = [0, 5];
+        this.vel = [0, 2];
         this.height = 6;
         this.width = 3;
         this.color = 'white';
