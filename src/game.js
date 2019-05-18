@@ -9,6 +9,7 @@ class Game {
         this.playerShip = null;
         this.gameBoard = gameBoard;
         this.playerLives = 3;
+        this.score = 0;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -36,13 +37,14 @@ class Game {
     addEnemies() {
 
         let y = 100;
-        for(let i = 0; i < 5; i++) {
+        for(let i = 1; i < 6; i++) {
             let x = 40;
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
                     pos: [x, y],
                     vel: [1.2, 0],
-                    game: this
+                    game: this,
+                    value: i * 10
                 }))
                 x += 45;
             }
@@ -74,9 +76,9 @@ class Game {
         for(let i = 0; i < this.bullets.length; i++) {
             for(let j = 0; j < this.enemyShips.length; j++) {
                 if(this.bullets[i].didCollide(this.enemyShips[j])) {
-                    console.log('HIT');
-                    console.log(this.enemyShips[j].area);
-                    return true;
+                    console.log(this.enemyShips[j].value);
+                    this.game.remove(this.bullets[i]);
+                    return 0;
                 }
             }
         }

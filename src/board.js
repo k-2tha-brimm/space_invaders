@@ -11,6 +11,7 @@ class Board {
 
         this.game.draw(this.ctx);
         this.game.moveObjects();
+        this.game.checkCollisions();
         // this.lastTime = time;
 
         requestAnimationFrame(this.animate.bind(this));

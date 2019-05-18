@@ -28,7 +28,7 @@ class Entities {
 
     didCollide(otherEntity) {
         const dist = Vector.distance(this.pos, otherEntity.pos);
-        return dist < (this.area + otherEntity.area)
+        return dist < (this.area + otherEntity.area);
     }
 
     
