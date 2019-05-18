@@ -42,7 +42,7 @@ class Game {
     addEnemies() {
 
         let y = 100;
-        for(let i = 1; i < 6; i++) {
+        for(let i = 5; i > 1; i--) {
             let x = 40;
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
@@ -66,9 +66,9 @@ class Game {
             ctx.drawImage(img, -500, 0);
         };
 
-        ctx.font = "Press Start 2P"
+        ctx.font = "30px Comic Sans MS";
         ctx.fillstyle = 'white';
-        ctx.fillText(`Score: ${this.score}`, 20, 20)
+        ctx.fillText(`Score: ${this.score}`, 20, 50)
 
         this.enemyShips.forEach((ship) => {
             ship.draw(ctx);
@@ -98,6 +98,7 @@ class Game {
                 }
             }
             if(destroyed) {
+                this.score += this.enemyShips[i].value;
                 this.enemyShips.splice(i--, 1);
                 if(this.enemyShips.length === 0) {
                     this.addEnemies();
