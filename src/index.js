@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     game.draw(ctx);
 
     const start = document.getElementById('start');
+    
     start.addEventListener('click', () => {
+        const game = new Game(gameBoard);
+        const board = new Board(game, ctx);
+        game.draw(ctx);
         board.start();
     })
 

@@ -10,6 +10,7 @@ class Game {
         this.gameBoard = gameBoard;
         this.playerLives = 3;
         this.score = 0;
+        this.gameIsOver = false;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -77,7 +78,7 @@ class Game {
             for(let j = 0; j < this.enemyShips.length; j++) {
                 if(this.bullets[i].didCollide(this.enemyShips[j])) {
                     console.log(this.enemyShips[j].value);
-                    this.game.remove(this.bullets[i]);
+                    // this.game.remove(this.bullets[i]);
                     return 0;
                 }
             }
@@ -148,6 +149,7 @@ class Game {
 
     gameOver(pos) {
         if(pos[1] > 620) {
+            this.gameIsOver = true;
             return true;
         } else {
             return false;

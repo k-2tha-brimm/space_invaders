@@ -14,7 +14,12 @@ class Board {
         this.game.checkCollisions();
         // this.lastTime = time;
 
-        requestAnimationFrame(this.animate.bind(this));
+        if(!this.game.gameIsOver) { 
+            requestAnimationFrame(this.animate.bind(this));
+        } else {
+            const screen = document.getElementById('splash-page');
+            screen.style.display = "flex";
+        }
     }
 
     start() {
