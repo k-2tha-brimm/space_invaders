@@ -21,7 +21,7 @@ body {
     position: absolute;
     align-items: center;
     margin-top: 25px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Press Start 2P', cursive;
 }
 
 #game-canvas {
@@ -66,7 +66,7 @@ aside {
 .directions {
     font-family: 'Indie Flower', cursive;
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     align-content: center;
     align-items: center;
@@ -74,4 +74,68 @@ aside {
     top: 20%;
     vertical-align: middle;
     position: relative;
+    border: 2px solid black;
 }
+
+#start {
+    height: 30px;
+    font-size: 18px;
+    width: 180px;
+    color: white;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#start:hover {
+    cursor: pointer;
+}
+
+#splash-page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+    top: 20%;
+    left: 37%;
+}
+
+#splash-page > img {
+    margin-bottom: 120px;
+}
+
+#splash-page > p {
+    margin-bottom: 40px;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+}
+
+/* #game-over-page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+    top: 20%;
+    left: 37%;
+}
+
+#game-over-page > img {
+    margin-bottom: 120px;
+}
+
+#game-over-page > p {
+    margin-bottom: 40px;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+} */

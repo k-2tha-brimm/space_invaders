@@ -18,7 +18,8 @@ class Entities {
     }
 
     move() {
-        this.pos[0] += this.vel[0]
+        // const delta = timeDelta || 0.05;
+        this.pos[0] += (this.vel[0]);
     }
 
     remove() {
@@ -27,7 +28,7 @@ class Entities {
 
     didCollide(otherEntity) {
         const dist = Vector.distance(this.pos, otherEntity.pos);
-        return dist < (this.area + otherEntity.area)
+        return dist < (this.area + otherEntity.area);
     }
 
     

@@ -10,6 +10,7 @@ class EnemyShip extends Entities {
         this.color = 'white';
         this.game = props.game;
         this.area = this.height * this.width;
+        this.value = props.value
     }
 }
 
