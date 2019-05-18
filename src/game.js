@@ -6,6 +6,7 @@ class Game {
     constructor(gameBoard) {
         this.enemyShips = [];
         this.bullets = [];
+        this.bombs = [];
         this.playerShip = null;
         this.gameBoard = gameBoard;
         this.playerLives = 3;
@@ -43,7 +44,7 @@ class Game {
             for(let n = 0; n < 11; n++) {
                 this.add(new EnemyShip({
                     pos: [x, y],
-                    vel: [1.2, 0],
+                    vel: [1, 0],
                     game: this,
                     value: i * 10
                 }))
@@ -54,12 +55,9 @@ class Game {
     }
 
     draw(ctx) {
-        // ctx.clearRect(0, 0, 600, 720);
-        // ctx.fillStyle = 'black';
-        // ctx.fillRect(0, 0, 600, 720);
-
         const img = new Image();
         img.src = '../assets/images/halo.jpg';
+
         img.onload = () => {
             ctx.drawImage(img, -500, 0);
         };
@@ -67,10 +65,13 @@ class Game {
         this.enemyShips.forEach((ship) => {
             ship.draw(ctx);
         });
+
         this.playerShip.draw(ctx);
+
         this.bullets.forEach((bullet) => {
             bullet.draw(ctx);
         })
+
     }
 
     checkCollisions() {
@@ -154,6 +155,12 @@ class Game {
 
     isOutOfBounds(pos) {
         return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
+    }
+
+    isGameOver() {
+        if(this.enemyShips.length === 0) {
+            this.gameIsOver = true;
+        }
     }
 
     gameOver(pos) {

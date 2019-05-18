@@ -15,9 +15,11 @@ class PlayerShip extends Entities {
     move() {
         document.addEventListener('keydown', () => {
             if(e.keyCode === 37) {
-                this.pos[1] -= 1
+                this.pos[1] -= 2.5;
+                e.preventDefault();
             } else if(e.keyCode === 39) {
-                this.pos[1] += 1
+                this.pos[1] += 2.5;
+                e.preventDefault();
             }
         });
     }
