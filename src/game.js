@@ -1,6 +1,7 @@
 const PlayerShip = require('./player_ship');
 const EnemyShip = require('./enemy_ship');
 const Bullet = require('./bullet');
+const Bomb = require('./bombs');
 
 class Game {
     constructor(gameBoard, score) {
@@ -91,6 +92,19 @@ class Game {
             bullet.draw(ctx);
         })
 
+        this.bombs.forEach((bomb) => {
+            bomb.draw(ctx);
+        })
+
+    }
+
+    bombsAway() {
+        const shipIndex = Math.floor(Math.random() * Math.floor(this.enemyShips.length));
+        const ship = this.enemyShips[shipIndex];
+        const shipPos = [(ship.pos[0] - 10), (ship.pos[1] + 13)]
+        // const bombPosition = [this.enemyShips[shipIndex].pos[0] - 10, this.enemyShips[shipIndex].pos[1] + 13];
+        const bombPosition = [shipPos];
+        this.addBombs(new Bomb(bombPosition));
     }
 
     checkCollisions() {
@@ -161,6 +175,17 @@ class Game {
         this.bullets.forEach((bullet) => {
             bullet.pos[1] -= bullet.vel[1];
         })
+
+        this.bombs.forEach((bomb) => {
+            console.log(bomb.pos[1] + bomb.vel[1]);
+            bomb.pos[1] += bomb.vel[1];
+        })
+
+        if(this.bombs.length < 2) {
+            this.bombsAway();
+        };
+
+
     }
     
     registerEvents() {
