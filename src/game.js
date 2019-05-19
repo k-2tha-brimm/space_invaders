@@ -66,9 +66,15 @@ class Game {
             ctx.drawImage(img, -500, 0);
         };
 
+        // ctx.textAlign = 'center';
+        
         ctx.font = "30px Comic Sans MS";
         ctx.fillstyle = 'white';
-        ctx.fillText(`Score: ${this.score}`, 20, 50)
+        ctx.fillText(`Score: ${this.score}`, 410, 50)
+        
+        ctx.font = "30px Comic Sans MS";
+        ctx.fillstyle = 'white';
+        ctx.fillText(`Lives: ${this.playerLives}`, 20, 50)
 
         this.enemyShips.forEach((ship) => {
             ship.draw(ctx);
@@ -101,6 +107,7 @@ class Game {
                 this.score += this.enemyShips[i].value;
                 this.enemyShips.splice(i--, 1);
                 if(this.enemyShips.length === 0) {
+                    this.bullets = [];
                     this.addEnemies();
                     this.addPlayerShip();
                     this.registerEvents();
