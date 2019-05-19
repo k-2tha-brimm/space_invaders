@@ -137,6 +137,26 @@ class Game {
                     this.bullets.splice(this.bullets.indexOf(bullet), 1);
                 }
             })
+
+            if(this.bombs) {
+                for(let n = 0; n < this.bombs.length; n++) {
+                    const bomb = this.bombs[n];
+                    const player = this.playerShip;
+                    if(bomb.pos[0] >= (player.pos[0] - player.width/2) && bomb.pos[0] <= (player.pos[0] + player.width/2) &&
+                    bomb.pos[1] >= (player.pos[1] - player.height/2) && bomb.pos[1] <= (player.pos[1] + player.height/2)) {
+                        this.bombs.splice(this.bombs.indexOf(bomb), 1);
+                        this.playerLives -= 1;
+                        break;
+                    }
+                };
+            }
+
+            this.bombs.forEach((bomb) => {
+                if(bomb.pos[1] > 720) {
+                    this.bombs.splice(this.bombs.indexOf(bomb), 1);
+                }
+            })
+
         }
     }
 
@@ -177,7 +197,6 @@ class Game {
         })
 
         this.bombs.forEach((bomb) => {
-            console.log(bomb.pos[1] + bomb.vel[1]);
             bomb.pos[1] += bomb.vel[1];
         })
 
