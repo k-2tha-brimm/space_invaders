@@ -9,13 +9,18 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack -w --mode=development"
+    "start": "webpack -w --mode=development",
+    "postinstall": "webpack"
   },
   "dependencies": {
     "webpack": "^4.30.0"
   },
   "dev-dependencies": {
     "webpack-cli": "^3.3.1"
+  },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "6.1.0"
   },
   "keywords": [],
   "author": "",
