@@ -12,18 +12,8 @@ class PlayerShip extends Entities {
         this.area = this.height * this.width;
     }
 
-    move() {
-        document.addEventListener('keydown', () => {
-            if(e.keyCode === 37) {
-                this.vel[1] -= 2.5;
-                e.preventDefault();
-            } else if(e.keyCode === 39) {
-                this.vel[1] += 2.5;
-                e.preventDefault();
-            }
-        });
-        this.pos[1] += this.vel[1]
-        requestAnimationFrame(move);
+    moveShip(velocity) {
+        this.vel[0] = velocity[0];
     }
 
 }

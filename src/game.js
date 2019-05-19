@@ -15,6 +15,7 @@ class Game {
         this.score = score || 0;
         this.gameIsOver = false;
         this.newRound = false;
+        this.bombs = [];
 
         this.addEnemies();
         this.addPlayerShip();
@@ -37,6 +38,10 @@ class Game {
 
     addBullet(bullet) {
         this.bullets.push(bullet);
+    }
+
+    addBombs(bomb) {
+        this.bombs.push(bomb);
     }
 
     addEnemies() {
@@ -113,6 +118,11 @@ class Game {
                     this.registerEvents();
                 }
             }
+            this.bullets.forEach((bullet) => {
+                if(bullet.pos[1] < 0) {
+                    this.bullets.splice(this.bullets.indexOf(bullet), 1);
+                }
+            })
         }
     }
 
@@ -125,7 +135,7 @@ class Game {
                 })
             }
 
-            let n = 1.2;
+            let n = 1;
 
             if(this.isOutOfBounds(ship.pos)) {
 
@@ -152,25 +162,36 @@ class Game {
             bullet.pos[1] -= bullet.vel[1];
         })
     }
-
+    
     registerEvents() {
+        let speed = 2;
+        let direction = { 
+            x: 0,
+            y: 0
+        };
+        
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
                 if(!this.isOutOfBounds(this.playerShip.pos)){
                     this.playerShip.pos[0] -= 20;
                 } else {
-                    this.playerShip.pos[0] += 10;
+                    this.playerShip.vel[0] = -speed;
                 }
             } else if(e.keyCode === 39) {
                 if(!this.isOutOfBounds(this.playerShip.pos)){
                     this.playerShip.pos[0] += 20
                 } else {
-                    this.playerShip.pos[0] -= 10;
+                    this.playerShip.vel[0] = speed;
                 }
             } else if(e.keyCode === 32) {
                 const position = [this.playerShip.pos[0] + 10, this.playerShip.pos[1] - 13];
-                this.addBullet(new Bullet(position))
+
+                if(this.bullets.length < 7) { 
+                    this.addBullet(new Bullet(position))
+                }
+
             }
+            this.playerShip.moveShip(direction);
         });
     }
 
