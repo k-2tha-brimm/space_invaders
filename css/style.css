@@ -139,3 +139,20 @@ aside {
     font-family: 'Press Start 2P', cursive;
     font-size: 11px;
 } */
+
+#game-over {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+    top: 20%;
+    left: 37%;
+}
+
+#game-over > p {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+}

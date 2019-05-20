@@ -16,6 +16,7 @@ class Game {
         this.score = score || 0;
         this.gameIsOver = false;
         this.newRound = false;
+        this.lifeWasLost = false;
         this.bombs = [];
 
         this.addEnemies();
@@ -146,6 +147,7 @@ class Game {
                     bomb.pos[1] >= (player.pos[1] - player.height/2) && bomb.pos[1] <= (player.pos[1] + player.height/2)) {
                         this.bombs.splice(this.bombs.indexOf(bomb), 1);
                         this.playerLives -= 1;
+                        this.lifeWasLost = true;
                         break;
                     }
                 };
