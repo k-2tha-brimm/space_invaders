@@ -29,7 +29,4 @@ document.addEventListener("DOMContentLoaded", () => {
         board.start();
     });
 
-})
-
-window.PlayerShip = PlayerShip;
-window.Entities = Entities;
+});

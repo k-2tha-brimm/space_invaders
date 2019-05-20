@@ -118,28 +118,6 @@ aside {
     font-size: 11px;
 }
 
-/* #game-over-page {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    margin: auto;
-    align-content: center;
-    text-align: center;
-    top: 20%;
-    left: 37%;
-}
-
-#game-over-page > img {
-    margin-bottom: 120px;
-}
-
-#game-over-page > p {
-    margin-bottom: 40px;
-    color: white;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 11px;
-} */
-
 #game-over {
     display: none;
     flex-direction: column;
@@ -147,12 +125,24 @@ aside {
     margin: auto;
     align-content: center;
     text-align: center;
-    top: 20%;
-    left: 37%;
+    top: 45%;
+    left: 42%;
 }
 
 #game-over > p {
     color: white;
     font-family: 'Press Start 2P', cursive;
-    font-size: 11px;
+    font-size: 30px;
+    margin-bottom: 45px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: gray;
+    height: 55px;
+    box-shadow: bisque;
 }

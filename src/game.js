@@ -18,6 +18,7 @@ class Game {
         this.newRound = false;
         this.lifeWasLost = false;
         this.bombs = [];
+        this.numBombs = 5;
 
         this.addEnemies();
         this.addPlayerShip();
@@ -72,8 +73,6 @@ class Game {
         img.onload = () => {
             ctx.drawImage(img, -500, 0);
         };
-
-        // ctx.textAlign = 'center';
         
         ctx.font = "30px Comic Sans MS";
         ctx.fillstyle = 'white';
@@ -127,6 +126,7 @@ class Game {
                 this.score += this.enemyShips[i].value;
                 this.enemyShips.splice(i--, 1);
                 if(this.enemyShips.length === 0) {
+                    this.numBombs += 2;
                     this.bullets = [];
                     this.addEnemies();
                     this.addPlayerShip();
@@ -202,7 +202,7 @@ class Game {
             bomb.pos[1] += bomb.vel[1];
         })
 
-        if(this.bombs.length < 2) {
+        if(this.bombs.length < this.numBombs) {
             this.bombsAway();
         };
 
