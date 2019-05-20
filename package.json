@@ -9,7 +9,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack -w --mode=development",
+    "dev": "webpack -w --mode=development",
     "postinstall": "webpack"
   },
   "dependencies": {
