@@ -29,4 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
         board.start();
     });
 
+    const newNew = document.getElementById('new');
+    
+    newNew.addEventListener('click', () => {
+        const game = new Game(gameBoard);
+        const board = new Board(game, ctx);
+        game.draw(ctx);
+        board.start();
+    });
+
 });
