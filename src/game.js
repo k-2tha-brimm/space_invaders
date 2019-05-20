@@ -142,7 +142,7 @@ class Game {
                 for(let n = 0; n < this.bombs.length; n++) {
                     const bomb = this.bombs[n];
                     const player = this.playerShip;
-                    if(bomb.pos[0] >= (player.pos[0] - player.width/2) && bomb.pos[0] <= (player.pos[0] + player.width/2) &&
+                    if(bomb.pos[0] >= (player.pos[0] - player.width) && bomb.pos[0] <= (player.pos[0] + player.width) &&
                     bomb.pos[1] >= (player.pos[1] - player.height/2) && bomb.pos[1] <= (player.pos[1] + player.height/2)) {
                         this.bombs.splice(this.bombs.indexOf(bomb), 1);
                         this.playerLives -= 1;
@@ -241,6 +241,13 @@ class Game {
 
     isOutOfBounds(pos) {
         return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
+    }
+
+    isOutOfLives() {
+        console.log(this.playerLives);
+        if(this.playerLives === 0) {
+            this.gameIsOver = true;
+        }
     }
 
     gameOver(pos) {

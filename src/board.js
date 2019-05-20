@@ -10,9 +10,9 @@ class Board {
         // const delta = time - this.lastTime;
 
         this.game.draw(this.ctx);
+        this.game.isOutOfLives();
         this.game.moveObjects();
         this.game.checkCollisions();
-
         // this.lastTime = time;
 
         if(!this.game.gameIsOver) { 
