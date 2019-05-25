@@ -101,7 +101,7 @@ class Game {
     bombsAway() {
         const shipIndex = Math.floor(Math.random() * Math.floor(this.enemyShips.length));
         const ship = this.enemyShips[shipIndex];
-        const shipPos = [(ship.pos[0] - 10), (ship.pos[1] + 13)]
+        const shipPos = [(ship.pos[0] - 15), (ship.pos[1] + 15)]
         const bombPosition = [shipPos];
         this.addBombs(new Bomb(bombPosition));
     }
