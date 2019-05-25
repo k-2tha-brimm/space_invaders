@@ -12,8 +12,9 @@ class PlayerShip extends Entities {
         this.area = this.height * this.width;
     }
 
-    moveShip(velocity) {
-        this.vel[0] = velocity[0];
+    moveShip() {
+        this.pos[0] += this.vel[0];
+        console.log(this.vel[0]);
     }
 
 }

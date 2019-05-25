@@ -209,7 +209,7 @@ class Game {
     }
     
     registerEvents() {
-        let speed = 2;
+        let speed = 9;
         let direction = { 
             x: 0,
             y: 0
@@ -218,13 +218,15 @@ class Game {
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
                 if(!this.isOutOfBounds(this.playerShip.pos)){
-                    this.playerShip.pos[0] -= 20;
+                    this.playerShip.vel[0] = -speed;
+                    // this.playerShip.pos[0] -= this.playerShip.vel[0];
                 } else {
                     this.playerShip.vel[0] = -speed;
                 }
             } else if(e.keyCode === 39) {
                 if(!this.isOutOfBounds(this.playerShip.pos)){
-                    this.playerShip.pos[0] += 20
+                    this.playerShip.vel[0] = speed;
+                    this.playerShip.pos[0] += speed;
                 } else {
                     this.playerShip.vel[0] = speed;
                 }
@@ -236,7 +238,7 @@ class Game {
                 }
 
             }
-            this.playerShip.moveShip(direction);
+            this.playerShip.moveShip();
         });
     }
 
