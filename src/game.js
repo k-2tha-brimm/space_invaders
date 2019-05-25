@@ -210,25 +210,19 @@ class Game {
     
     registerEvents() {
         let speed = 9;
-        let direction = { 
-            x: 0,
-            y: 0
-        };
         
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
                 if(!this.isOutOfBounds(this.playerShip.pos)){
                     this.playerShip.vel[0] = -speed;
-                    // this.playerShip.pos[0] -= this.playerShip.vel[0];
                 } else {
-                    this.playerShip.vel[0] = -speed;
+                    this.playerShip.pos[0] += 2;
                 }
             } else if(e.keyCode === 39) {
-                if(!this.isOutOfBounds(this.playerShip.pos)){
+                if(!this.isOutOfBounds(this.playerShip.pos + 15)){
                     this.playerShip.vel[0] = speed;
-                    this.playerShip.pos[0] += speed;
                 } else {
-                    this.playerShip.vel[0] = speed;
+                    this.playerShip.pos[0] -= 20;
                 }
             } else if(e.keyCode === 32) {
                 const position = [this.playerShip.pos[0] + 10, this.playerShip.pos[1] - 13];
@@ -243,7 +237,7 @@ class Game {
     }
 
     isOutOfBounds(pos) {
-        return(pos[0] < 0) || (pos[0] + 25 >= Game.WIDTH)
+        return(pos[0] + 10 < 0) || (pos[0] + 25 >= Game.WIDTH)
     }
 
     isOutOfLives() {
