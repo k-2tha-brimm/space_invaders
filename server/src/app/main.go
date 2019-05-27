@@ -10,9 +10,9 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		log.Println("Hello, Kevin!")
-	}))
+	// http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	// 	log.Println("Hello, Kevin!")
+	// }))
 
 	if port == "" {
 		log.Fatal("$PORT must be set")
