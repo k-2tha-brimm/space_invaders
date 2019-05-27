@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "webpack -w --mode=development",
     "postinstall": "webpack",
-    "start": "go run ./server/src/app/main.go"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.17.0",
