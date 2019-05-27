@@ -2,12 +2,6 @@ const PlayerShip = require('./player_ship');
 const Entities = require('./entities');
 const Game = require('./game');
 const Board = require('./board');
-// const express = require('express')
-// const path = require('path')
-// const PORT = process.env.PORT || 5000
-
-// express()
-//   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 document.addEventListener("DOMContentLoaded", () => {
     const gameBoard = document.getElementById('game-canvas');
