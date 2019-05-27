@@ -1,0 +1,1 @@
+web: go run ./server/src/app/main.go
