@@ -174,7 +174,7 @@ class Game {
 
             if(this.isOutOfBounds(ship.pos)) {
 
-                if(ship.pos[0] < 0) {
+                if(ship.pos[0] <= 0) {
                     this.enemyShips.map((ship) => {
                         ship.pos[1] += 30;
                         ship.pos[0] += 10;
@@ -237,7 +237,7 @@ class Game {
     }
 
     isOutOfBounds(pos) {
-        return(pos[0] + 10 < 0) || (pos[0] + 25 >= Game.WIDTH)
+        return(pos[0] <= 100) || (pos[0] + 25 >= Game.WIDTH)
     }
 
     isOutOfLives() {
