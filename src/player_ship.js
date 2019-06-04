@@ -14,7 +14,6 @@ class PlayerShip extends Entities {
 
     moveShip() {
         this.pos[0] += this.vel[0];
-        console.log(this.vel[0]);
     }
 
 }

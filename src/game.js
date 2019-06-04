@@ -241,7 +241,6 @@ class Game {
     }
 
     isOutOfLives() {
-        console.log(this.playerLives);
         if(this.playerLives === 0) {
             this.gameIsOver = true;
         }

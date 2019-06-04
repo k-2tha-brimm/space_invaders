@@ -26,7 +26,7 @@ body {
 
 #game-canvas {
     border: 1px solid black;
-    margin-top: 25%;
+    margin-top: 13%;
     display: block;
     align-content: center;
     justify-content: center;
@@ -103,7 +103,7 @@ aside {
     margin: auto;
     align-content: center;
     text-align: center;
-    top: 20%;
+    top: 16%;
     left: 37%;
 }
 
@@ -142,7 +142,7 @@ footer {
     display: flex!important;
     justify-content: space-between;
     width: 100vw;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     height: 60px;
 }
 
