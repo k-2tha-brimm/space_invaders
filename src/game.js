@@ -214,7 +214,7 @@ class Game {
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
                 let position = this.playerShip.pos;
-                if(!this.isOutOfBounds([position[0] - 25, position[1]])){
+                if(!this.isOutOfBounds([position[0] - 12.5, position[1]])){
                     this.playerShip.vel[0] = -speed;
                 } else {
                     this.playerShip.pos[0] += 20;
@@ -222,7 +222,7 @@ class Game {
                 }
             } else if(e.keyCode === 39) {
                 let position = this.playerShip.pos;
-                if(!this.isOutOfBounds([position[0] + 25, position[1]])){
+                if(!this.isOutOfBounds([position[0] + 12.5, position[1]])){
                     this.playerShip.vel[0] = speed;
                 } else {
                     this.playerShip.pos[0] -= 20;
