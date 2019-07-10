@@ -213,13 +213,16 @@ class Game {
         
         document.addEventListener('keydown', e => {
             if(e.keyCode === 37) {
-                if(!this.isOutOfBounds(this.playerShip.pos)){
+                let position = this.playerShip.pos;
+                if(!this.isOutOfBounds([position[0] - 25, position[1]])){
                     this.playerShip.vel[0] = -speed;
                 } else {
-                    this.playerShip.pos[0] += 2;
+                    this.playerShip.pos[0] += 20;
+                    this.playerShip.vel[0] = speed;
                 }
             } else if(e.keyCode === 39) {
-                if(!this.isOutOfBounds(this.playerShip.pos + 15)){
+                let position = this.playerShip.pos;
+                if(!this.isOutOfBounds([position[0] + 25, position[1]])){
                     this.playerShip.vel[0] = speed;
                 } else {
                     this.playerShip.pos[0] -= 20;
@@ -237,7 +240,10 @@ class Game {
     }
 
     isOutOfBounds(pos) {
-        return(pos[0] <= 100) || (pos[0] + 25 >= Game.WIDTH)
+        if((pos[0] <= 0) || (pos[0] + 25 >= Game.WIDTH)) {
+            return true;
+        }
+        return false;
     }
 
     isOutOfLives() {
